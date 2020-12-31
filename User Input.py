@@ -1,5 +1,4 @@
-Python 3.9.1 (tags/v3.9.1:1e5d33e, Dec  7 2020, 17:08:21) [MSC v.1927 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
+
 >>> import CRD as M
 >>> M.create("python",3)
 >>> 
@@ -20,4 +19,10 @@ key is successfully deleted
 >>> M.read("python")
 given key does not exist in database
 >>> 
->>> 
+>>> #we can access these using multiple threads like
+t1=Thread(target=(create or read or delete),args=(key_name,value,timeout)) #as per the operation
+t1.start()
+t1.sleep()
+t2=Thread(target=(create or read or delete),args=(key_name,value,timeout)) #as per the operation
+t2.start()
+t2.sleep()
